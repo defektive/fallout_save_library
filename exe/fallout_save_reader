@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require "defektive/fallout_save_library"
+require "thor"
+
+
+class MyCLI < Thor
+  desc "read SAVE_FILE", "read SAVE_FILE"
+  def read(save_file)
+    @save_reader = Defektive::FalloutSaveLibrary::SaveReader.new save_file
+
+    puts @save_reader.save_file.character_name
+    puts "Level: #{@save_reader.save_file.level}"
+    puts "Location: #{@save_reader.save_file.location}"
+    puts "Duration: #{@save_reader.save_file.duration}"
+    puts "Race: #{@save_reader.save_file.race}"
+    puts "Stats:"
+
+    @save_reader.save_file.stats.each do |stat|
+      puts "  #{stat.name}: #{stat.stat_value}"
+    end
+  end
+end
+
+
+MyCLI.start ARGV

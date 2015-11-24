@@ -2,6 +2,7 @@ module Defektive
   module FalloutSaveLibrary
     class SaveReader
 
+      attr_reader :save_file
       def initialize(file_name)
         @file_io = File.open(file_name, 'rb')
         @save_file = SaveFile.read @file_io

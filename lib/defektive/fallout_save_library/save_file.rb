@@ -66,26 +66,5 @@ module Defektive
       # stat_string :stat1
       array   :stats, :initial_length => :stat_length, :type => :stat_string
     end
-
   end
 end
-
-
-# @header[:extra_bytes] = []
-#
-# # not sure whats in these 11 bytes
-# @header[:extra_bytes].push read_byte_array(11, raw_header)
-#
-# @character_name = read_next(raw_header)
-# @level = raw_header.readbyte
-#
-# # not sure whats in these 3 bytes
-# @header[:extra_bytes].push read_byte_array(3, raw_header)
-#
-# @location = read_next(raw_header)
-# @duration = read_next(raw_header)
-# @race = read_next(raw_header)
-# @sex = read_next(raw_header)
-#
-# # not sure whats left
-# @header[:extra_bytes].push read_byte_array_eof(raw_header)
